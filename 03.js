@@ -27,11 +27,12 @@ function decryptXOR(xorHexString) {
 
   console.log("Best key is: " + String.fromCharCode(bestKey));
   console.log("Best decryption: " + bestDecryption.toString());
+  console.log("Best score: " + bestScore);
 }
 
 function scoreDecryption(decryption) {
   // Character frequency data for English language
-  const charFrequency = {
+  const englishCharFrequency = {
     a: 0.08167,
     b: 0.01492,
     c: 0.02782,
@@ -63,9 +64,11 @@ function scoreDecryption(decryption) {
   let score = 0;
   // Count the frequency of each letter in the decryption
   const letterCounts = {};
+  let totalLetterCount = 0;
   for (let i = 0; i < decryption.length; i++) {
     const char = String.fromCharCode(decryption[i]).toLowerCase();
-    if (char in charFrequency) {
+    if (char in englishCharFrequency) {
+      totalLetterCount++;
       if (char in letterCounts) {
         letterCounts[char]++;
       } else {
@@ -76,7 +79,11 @@ function scoreDecryption(decryption) {
 
   // Calculate the score based on the letter frequencies
   for (const char in letterCounts) {
-    score += letterCounts[char] * charFrequency[char];
+    score +=
+      1 -
+      Math.abs(
+        letterCounts[char] / totalLetterCount - englishCharFrequency[char]
+      );
   }
 
   return score;

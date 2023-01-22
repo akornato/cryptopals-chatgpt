@@ -2,6 +2,8 @@ I've asked [OpenAI's ChatGPT](https://chat.openai.com) to solve [Cryptopals chal
 
 Some tasks are made harder to make it more interesting, for example convert hex to base64 without using `Buffer` class or any npm package etc.
 
-I've had to fix the original ChatGPT code in the following places to make it actually work:
+Task MDs have original ChatGPT answer, while JS files have the final version with the following fixes (excluding minor stuff like prettier formatting or variable renames):
 
-[03.js#L67](03.js#L67) - added `String.fromCharCode`, because ChatGPT was trying to call `toLowerCase` on a `number`
+[03.js#L69](03.js#L69) - ChatGPT was trying `toLowerCase` a `number`, so added `String.fromCharCode`
+
+[03.js#L82](03.js#L82) - ChatGPT was increasing the score with a rather obscure `letterCounts[char] * charFrequency[char]` which produced incorrect result. Fixed to `1 - letterCounts[char] / totalLetterCount - englishCharFrequency[char]`.
