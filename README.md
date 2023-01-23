@@ -7,3 +7,5 @@ Task MDs have original ChatGPT answer, while JS files have the final version wit
 [03.js#L60](03.js#L60) - added space to `englishCharFrequency`
 
 [03.js#L67](03.js#L67) - ChatGPT was trying `toLowerCase` a `number`, so added `String.fromCharCode`
+
+[04.js](04.js) - changed [decryptXOR](03.js#L1) in the previous task to return the score so they can be compared across multiple strings here
