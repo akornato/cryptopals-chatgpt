@@ -25,9 +25,7 @@ function decryptXOR(xorHexString) {
     }
   }
 
-  console.log("Best key is: " + String.fromCharCode(bestKey));
-  console.log("Best decryption: " + bestDecryption.toString());
-  console.log("Best score: " + bestScore);
+  return { decryption: bestDecryption.toString(), score: bestScore };
 }
 
 function scoreDecryption(decryption) {
@@ -59,16 +57,15 @@ function scoreDecryption(decryption) {
     x: 0.0015,
     y: 0.01974,
     z: 0.00074,
+    " ": 0.13,
   };
 
   let score = 0;
-  // Count the frequency of each letter in the decryption
+  // Count each letter in the decryption
   const letterCounts = {};
-  let totalLetterCount = 0;
   for (let i = 0; i < decryption.length; i++) {
     const char = String.fromCharCode(decryption[i]).toLowerCase();
     if (char in englishCharFrequency) {
-      totalLetterCount++;
       if (char in letterCounts) {
         letterCounts[char]++;
       } else {
@@ -79,16 +76,17 @@ function scoreDecryption(decryption) {
 
   // Calculate the score based on the letter frequencies
   for (const char in letterCounts) {
-    score +=
-      1 -
-      Math.abs(
-        letterCounts[char] / totalLetterCount - englishCharFrequency[char]
-      );
+    score += letterCounts[char] * englishCharFrequency[char];
   }
 
   return score;
 }
 
-decryptXOR(
-  "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
-);
+const xorHexString =
+  "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736";
+const { decryption, score } = decryptXOR(xorHexString);
+console.log("XOR hex string: ", xorHexString);
+console.log("Decryption: " + decryption.toString());
+console.log("Score: " + score);
+
+module.exports = decryptXOR;
