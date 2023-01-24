@@ -1,11 +1,1 @@
-I've asked [OpenAI's ChatGPT](https://chat.openai.com) to solve [Cryptopals challenges](https://cryptopals.com) in Node.js.
-
-Some tasks are made harder to make it more interesting, for example convert hex to base64 without using `Buffer` class or any npm package etc.
-
-Task MDs have original ChatGPT answer, while JS files have the final version with the following fixes (excluding minor stuff like prettier formatting or variable renames):
-
-[03.js#L60](03.js#L60) - added space to `englishCharFrequency`
-
-[03.js#L67](03.js#L67) - ChatGPT was trying `toLowerCase` a `number`, so added `String.fromCharCode`
-
-[04.js](04.js) - changed [decryptXOR](03.js#L1) in the previous task to return the score so they can be compared across multiple strings here
+I've asked [OpenAI's ChatGPT](https://chat.openai.com) to solve [Cryptopals challenges](https://cryptopals.com) in Node.js. While it knocked simpler tasks out of the park in its first answer, others required more of a discussion, fixing and piecing multiple answers together. The code in this repo is working final result of these interactions.
