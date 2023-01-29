@@ -1,5 +1,5 @@
 const fs = require("fs");
-const decryptXOR = require("./03.js");
+const decryptXOR = require("./sol_03.js");
 
 function hammingDistance(str1, str2) {
   // Convert the strings to Buffers

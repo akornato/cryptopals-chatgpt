@@ -1,5 +1,5 @@
 const fs = require("fs");
-const decryptXOR = require("./03.js");
+const decryptXOR = require("./sol_03.js");
 
 fs.readFile("data/04.txt", "utf8", (err, data) => {
   if (err) {

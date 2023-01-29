@@ -1,6 +1,6 @@
 const fs = require("fs");
 const crypto = require("crypto");
-const pad = require("./09.js");
+const pad = require("./sol_09.js");
 
 const key = "YELLOW SUBMARINE";
 const blockSize = 16;

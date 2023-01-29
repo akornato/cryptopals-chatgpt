@@ -1,4 +1,4 @@
-module.exports = function pad(plaintext, blockSize) {
+ function pad(plaintext, blockSize) {
   const data = Buffer.from(plaintext);
   const modulo = data.length % blockSize;
   const padLength = modulo ? blockSize - modulo : 0;
@@ -6,4 +6,6 @@ module.exports = function pad(plaintext, blockSize) {
   return Buffer.concat([data, padding]);
 };
 
-// console.log(pad("YELLOW SUBMARINE", 20));
+console.log(pad("YELLOW SUBMARINE", 20));
+
+module.exports = pad;

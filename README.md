@@ -2,7 +2,7 @@ I've asked [OpenAI's ChatGPT](https://chat.openai.com) to solve [Cryptopals chal
 
 ### Node
 
-From repo root run `node node/01` etc.
+From repo root run `node node/sol_01` etc.
 
 ### Rust
 
