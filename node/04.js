@@ -1,7 +1,7 @@
 const fs = require("fs");
 const decryptXOR = require("./03.js");
 
-fs.readFile("04.txt", "utf8", (err, data) => {
+fs.readFile("data/04.txt", "utf8", (err, data) => {
   if (err) {
     throw err;
   }

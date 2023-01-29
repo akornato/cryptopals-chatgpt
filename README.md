@@ -6,4 +6,4 @@ From repo root run `node node/01` etc.
 
 ### Rust
 
-From repo root run `cargo run --manifest-path=rust/Cargo.toml --example 01` etc.
+From repo root run `cargo run --manifest-path=rust/Cargo.toml --example sol_01` etc.

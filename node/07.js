@@ -3,7 +3,7 @@ const crypto = require("crypto");
 
 const key = "YELLOW SUBMARINE";
 
-fs.readFile("07.txt", (err, data) => {
+fs.readFile("data/07.txt", (err, data) => {
   if (err) throw err;
   const cipher = crypto.createDecipheriv("aes-128-ecb", key, '');
   let decrypted = cipher.update(data.toString(), "base64", "utf8");

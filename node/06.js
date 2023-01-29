@@ -23,7 +23,7 @@ console.log(
     : "failed"
 );
 
-fs.readFile("06.txt", (err, data) => {
+fs.readFile("data/06.txt", (err, data) => {
   if (err) throw err;
 
   const decodedData = Buffer.from(data.toString(), "base64");

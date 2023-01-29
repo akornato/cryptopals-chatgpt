@@ -62,7 +62,7 @@ function decryptAES128CBC(key, iv, ciphertext) {
   return Buffer.concat(plaintextBlocks);
 }
 
-fs.readFile("10.txt", "utf-8", (err, data) => {
+fs.readFile("data/10.txt", "utf-8", (err, data) => {
   if (err) throw err;
 
   const decodedData = Buffer.from(data, "base64");

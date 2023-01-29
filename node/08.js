@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-fs.readFile("08.txt", "utf8", (err, data) => {
+fs.readFile("data/08.txt", "utf8", (err, data) => {
   if (err) throw err;
 
   // Split the file into an array of hex-encoded ciphertexts

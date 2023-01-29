@@ -1,16 +1,21 @@
 use std::error::Error;
 
-fn decrypt_xor(xor_hex_string: &str) -> Result<Decryption, Box<dyn Error>> {
+#[derive(Debug, PartialEq)]
+pub struct Decryption {
+    pub key: u8,
+    pub decryption: Vec<u8>,
+    pub score: f64,
+}
+
+pub fn decrypt_xor(xor_hex_string: &str) -> Result<Decryption, Box<dyn Error>> {
     let xor_buffer = hex::decode(xor_hex_string)?;
     let mut best_score = 0.0;
-    let mut best_decryption = Vec::new();
+    let mut best_decryption = Vec::<u8>::new();
     let mut best_key = 0;
     for i in 0..256 {
         let key = i as u8;
         let decryption = xor_buffer.iter().map(|b| b ^ key).collect::<Vec<u8>>();
-
         let score = score_decryption(&decryption);
-
         if score > best_score {
             best_score = score;
             best_decryption = decryption;
@@ -20,16 +25,9 @@ fn decrypt_xor(xor_hex_string: &str) -> Result<Decryption, Box<dyn Error>> {
 
     Ok(Decryption {
         key: best_key,
-        decryption: String::from_utf8(best_decryption)?,
+        decryption: best_decryption,
         score: best_score,
     })
-}
-
-#[derive(Debug, PartialEq)]
-struct Decryption {
-    key: u8,
-    decryption: String,
-    score: f64,
 }
 
 fn score_decryption(decryption: &[u8]) -> f64 {
