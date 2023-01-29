@@ -1,4 +1,4 @@
-I've asked [OpenAI's ChatGPT](https://chat.openai.com) to solve [Cryptopals challenges](https://cryptopals.com) in Node.js, then convert them to Rust. All code versions have been tested and fixed if necessary.
+I've asked [OpenAI's ChatGPT](https://chat.openai.com) to solve [Cryptopals challenges](https://cryptopals.com) in Node.js, then convert the solutions to Rust. Both versions have been tested and fixed if necessary.
 
 ### Node
 
